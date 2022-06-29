@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("mayor1docker/ubuntu")
+        app = docker.build("mayor1docker/nodeapp")
     }
 
     stage('Test image') {
@@ -32,5 +32,6 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
+             echo "Trying to Push Docker Build to the DockerHub"
     }
 }
